@@ -198,6 +198,50 @@
           background-color: #bababa;
           border-radius: 50%;
         }
+
+        #popup-container {
+          display: none; /* Sembunyikan secara default */
+          position: fixed;
+          bottom: 0;
+          left: 50%;
+  transform: translateX(-50%);
+          width: 100%;
+          background-color: #f1f1f1;
+          padding: 20px;
+          box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+          border-top: 3px solid #000;
+          overflow-y: auto;
+          max-height: 85%;
+          height: auto;
+          transition: height 0.2s ease-in-out;
+          border-top-left-radius: 25px; /* Sudut melengkung di atas kiri */
+          border-top-right-radius: 25px; /* Sudut melengkung di atas kanan */
+          margin: 0; /* Ganti margin menjadi 0 */
+      }
+
+      #popup-handle {
+        cursor: grab;
+        width: 40px;
+        height: 5px;
+        background-color: #333;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        touch-action: none;
+      }
+
+      .lock-icon:not(.exclude-lock),
+      .close-icon {
+        font-size: larger;
+        cursor: pointer;
+      }
+
+      @media screen and (max-width: 600px) {
+        #popup-handle {
+          margin-left: calc(
+            50% - 20px
+          ); /* Menengahkan handle pada tampilan mobile */
+        }
+      }
     </style>
     <link
       rel="stylesheet"
@@ -286,6 +330,98 @@
 
             suggestions.style.display = filteredSuggestions.length > 0 ? "block" : "none";
         });
+    </script>
+    <script>
+      let isDragging = false;
+      let initialY;
+      let yOffset = 0;
+      let isLocked = false;
+
+      const popupContainer = document.getElementById("popup-container");
+      const popupHandle = document.getElementById("popup-handle");
+      const lockIcon = document.getElementById("lock-icon");
+      const lockText = document.getElementById("lock-text");
+
+      popupHandle.addEventListener("mousedown", startDrag);
+      document.addEventListener("mouseup", endDrag);
+      document.addEventListener("mousemove", drag);
+
+      popupHandle.addEventListener("touchstart", startDrag);
+      document.addEventListener("touchend", endDrag);
+      document.addEventListener("touchmove", drag);
+
+      function startDrag(e) {
+        isDragging = true;
+        initialY = (e.clientY || e.touches[0].clientY) - yOffset;
+        popupHandle.style.cursor = "grabbing";
+
+        // Periksa apakah perangkat mendukung sentuhan
+        if (e.type === "touchstart") {
+          initialY = e.touches[0].clientY - yOffset;
+        }
+
+        // Tambahkan event listener untuk menghindari seleksi teks selama pergerakan mouse atau sentuhan
+        document.addEventListener("selectstart", disableSelection);
+      }
+
+      function endDrag() {
+        isDragging = false;
+        popupHandle.style.cursor = "grab";
+        // Hapus event listener setelah selesai menarik
+        document.removeEventListener("selectstart", disableSelection);
+      }
+
+      function drag(e) {
+        if (isDragging && !isLocked) {
+          const newY = (e.clientY || e.touches[0].clientY) - initialY;
+          const windowHeight = window.innerHeight;
+
+          if (newY < 0) {
+            // Jika pergerakan mouse ke atas, set tinggi popup sesuai dengan pergerakan
+            popupContainer.style.transition = "none";
+            popupContainer.style.height = `${windowHeight - newY}px`;
+          } else if (newY > 0) {
+            // Jika pergerakan mouse ke bawah, set tinggi popup sesuai dengan pergerakan
+            popupContainer.style.transition = "none";
+            popupContainer.style.height = `${windowHeight - newY}px`;
+          }
+
+          yOffset = (e.clientY || e.touches[0].clientY) - initialY;
+        }
+      }
+
+      // Fungsi untuk mencegah seleksi teks selama pergerakan mouse atau sentuhan
+      function disableSelection(e) {
+        e.preventDefault();
+      }
+
+      // Fungsi untuk mengatur tinggi pop-up ke max-height (85%) saat pertama kali tampil
+      function setDefaultHeight() {
+        popupContainer.style.height = "85%";
+      }
+
+      // Fungsi untuk menampilkan pop-up
+      function showPopup() {
+        popupContainer.style.display = "block";
+      }
+
+      // Panggil fungsi setDefaultHeight saat dokumen selesai dimuat
+      window.onload = setDefaultHeight;
+
+      // Fungsi untuk mengunci atau membuka tinggi pop-up
+      function toggleLock() {
+        isLocked = !isLocked;
+        if (isLocked) {
+          lockIcon.innerHTML = '<i class="fa-solid fa-lock"></i>';
+        } else {
+          lockIcon.innerHTML = '<i class="fa-solid fa-unlock"></i>';
+        }
+      }
+
+      // Fungsi untuk menutup pop-up
+      function closePopup() {
+        popupContainer.style.display = "none";
+      }
     </script>
   </body>
 </html>
