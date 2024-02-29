@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {{-- <link rel="icon" href="assets/revam.png"> --}}
+    <link rel="icon" href="#">
     <!-- Contoh penggunaan Google Fonts di HTML -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
     <link
@@ -232,7 +232,7 @@
         const hamburgerIcon = document.getElementById("hamburger");
 
         if (body.classList.contains("dark-mode")) {
-          // logo.src = "assets/revam-dark.png";
+          logo.src = "#";
           darkModeIcon.classList.remove("fa-moon");
           darkModeIcon.classList.add("fa-sun");
           userIcon.innerHTML = '<a href="#" style="text-decoration: none;"><i class="fa-regular fa-user fs-3" style="color: #fff;"></i></a>';

@@ -1,6 +1,6 @@
 <div class="navbar">
     <div class="navbar-icon ms-3" id="user"><a href="#" style="text-decoration: none;"><i class="fa-regular fa-user fs-3" style="color: #000;"></i></a></div>
-    {{-- <div class="navbar-brand"><img src="assets/revam.png" alt="Logo" style="width: 35px;"></div> --}}
+    <div class="navbar-brand"><img src="#" alt="Logo" style="width: 35px;"></div>
     <div class="navbar-icons">
       <div class="navbar-icon" id="hamburger">
         <i class="fa-solid fa-bars-staggered" style="color: #000;"></i>
@@ -12,6 +12,7 @@
 
   <div class="sidebar" id="sidebar">
     <button class="btn btn-dark text-light ms-3" onclick="toggleDarkMode()"><i id="dark-mode-icon" class="fas fa-moon"></i></button>
+    <button class="btn btn-dark text-light ms-3"><i class="fa-solid fa-headset"></i></button>
     <hr>
       {{-- @auth --}}
           {{-- <div class="nav-item dropdown">
