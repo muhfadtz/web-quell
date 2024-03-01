@@ -281,7 +281,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 mx-auto p-3" style="margin-top: 120px;">
+                <div class="col-lg-6 mx-auto p-3 mt-5">
                     @yield('container')
                 </div>
             </div>    

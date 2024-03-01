@@ -26,6 +26,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
+                <div class="input-group mb-4">
+                    <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request('search') }}">
+                    <button class="btn btn-outline-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
                 <div class="tab-container mb-5">
                     <div class="tab-bar ms-4">
                       @foreach($categories as $category)
@@ -39,4 +47,18 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+    
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function(event) {
+                    event.preventDefault(); // Mencegah perilaku default anchor link
+    
+                    // Lakukan navigasi ke URL
+                    window.location.href = this.querySelector('a').getAttribute('href');
+                });
+            });
+        });
+    </script>
 @endsection
