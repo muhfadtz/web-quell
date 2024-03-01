@@ -23,4 +23,20 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="tab-container mb-5">
+                    <div class="tab-bar ms-4">
+                      @foreach($categories as $category)
+                          <div class="tab @if(request('category') == $category->slug) active @endif" data-category="{{ $category->name }}">
+                              <a href="/blog?category={{ $category->slug }}" style="color: inherit; text-decoration: none;">{{ $category->name }}</a>
+                          </div>
+                      @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection

@@ -204,7 +204,7 @@
           position: fixed;
           bottom: 0;
           left: 50%;
-  transform: translateX(-50%);
+          transform: translateX(-50%);
           width: 100%;
           background-color: #f1f1f1;
           padding: 20px;
@@ -241,6 +241,34 @@
             50% - 20px
           ); /* Menengahkan handle pada tampilan mobile */
         }
+      }
+
+      .tab-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+        overflow-x: auto;
+        align-items: center; /* Tambahkan ini untuk mengatur posisi tengah jika tidak ada overflow */
+      }
+
+      .tab-bar {
+          display: flex;
+          overflow-x: auto;
+          justify-content: center; /* Tambahkan ini untuk mengatur posisi tengah jika tidak ada overflow */
+      }
+
+      .tab {
+          padding: 5px 10px;
+          margin-right: 10px;
+          cursor: pointer;
+          border: 1px solid #ddd;
+          border-radius: 25px;
+      }
+
+      /* Tambahkan gaya aktif untuk tab terpilih */
+      .tab.active {
+          background-color: #1a1a1a;
+          color: white;
       }
     </style>
     <link
