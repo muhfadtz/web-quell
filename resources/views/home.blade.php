@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-lg-12">
                 <div class="tab-container mb-5">
                     <div class="tab-bar ms-4">
@@ -44,6 +44,27 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="row justify-content-center">
+            @foreach ($posts as $post)
+                <div class="col-lg-3 mb-5">
+                    <div class="row">
+                        <div class="col-12">
+                            @if ($post->image)
+                                <img class="img-fluid rounded-4" style="height: auto; max-height: 140px; width: 100%;" src="{{ asset('storage/' . $post->image) }}" alt="image">
+                            @else
+                                <img class="img-fluid rounded-4" src="https:/source.unsplash.com/1280x720/?{{ $post->category->name }}" alt="image">
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="mb-2"><a href="{{ route('posts.show', ['slug' => $post->slug]) }}" style="color: inherit; text-decoration: none;">{{ $post->title }}</a></h5>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 
