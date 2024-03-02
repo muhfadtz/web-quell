@@ -40,7 +40,7 @@
     {{-- <a href="#" onclick="hideSidebar()"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a> --}}
     <div class="card text-light" style="background-color: #1a1a1a">
       <div class="card-body">
-          <p class="fw-light" style="font-size: smaller"><span class="fw-bold" style="font-size: medium">Try Pro</span><br>Upgrade for summarize in more scale<br><button class="border-0 fw-bold mt-2 px-2" style="border-radius: 10px"><i class="fa-solid fa-arrow-up-right-from-square"></i><a href="#" class="exclude-me" style="text-decoration: none; color: inherit;"> Learn More</a></button></p>
+          <p class="fw-light" style="font-size: smaller"><span class="fw-bold" style="font-size: medium">Try Pro</span><br>Upgrade for expand in more scale<br><button class="border-0 fw-bold mt-2 px-2" style="border-radius: 10px"><i class="fa-solid fa-arrow-up-right-from-square"></i><a href="#" class="exclude-me" style="text-decoration: none; color: inherit;"> Learn More</a></button></p>
       </div>
     </div> 
   </div>

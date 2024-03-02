@@ -143,63 +143,7 @@
           color: #1a1a1a !important;
       }
 
-      /* style.css */
-      #summarizeForm {
-            display: flex;
-            align-items: center;
-            background-color: #fff;
-            border-radius: 22px;
-            border: 1px solid #1a1a1a;
-            padding: 10px;
-        }
-
-      .search-box {
-            display: flex;
-            align-items: center;
-            background-color: #fff;
-            border-radius: 22px;
-            border: 1px solid #1a1a1a;
-        }
-
-        .search-textarea {
-            align-items: center;
-            display: flex;
-            width: 100%;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            padding: 10px;
-            border-radius: 5px;
-            resize: none;
-            height: auto; /* atau height: 100%; */
-            overflow-y: hidden; /* atau overflow-y: auto; sesuai kebutuhan */
-        }
-
-        .search-button {
-          align-items: center;
-            display: flex;
-            background-color: #255282;
-            color: #fff;
-            border: none;
-            outline: none;
-            padding: 8px 16px;
-            font-size: 16px;
-            border-radius: 15px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-
-        .search-button:hover {
-            background-color: #4384c9
-        }
-
-        .fa-copy:hover, .fa-rotate-right:hover {
-          background-color: #bababa;
-          border-radius: 50%;
-        }
-
-        #popup-container {
+      #popup-container {
           display: none; /* Sembunyikan secara default */
           position: fixed;
           bottom: 0;
@@ -253,7 +197,6 @@
 
       .tab-bar {
           display: flex;
-          overflow-x: auto;
           justify-content: center; /* Tambahkan ini untuk mengatur posisi tengah jika tidak ada overflow */
       }
 
@@ -281,13 +224,27 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 mx-auto p-3 mt-5">
+                <div class="col-lg-12 p-3 mt-5">
                     @yield('container')
                 </div>
             </div>    
         </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const tabs = document.querySelectorAll('.tab');
+  
+          tabs.forEach(tab => {
+              tab.addEventListener('click', function(event) {
+                  event.preventDefault(); // Mencegah perilaku default anchor link
+  
+                  // Lakukan navigasi ke URL
+                  window.location.href = this.querySelector('a').getAttribute('href');
+              });
+          });
+      });
+    </script>
     <script>
       function hideSidebar() {
         document.getElementById("sidebar").style.right = "-220px";
