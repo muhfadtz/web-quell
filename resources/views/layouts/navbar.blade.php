@@ -13,6 +13,7 @@
   <div class="sidebar" id="sidebar">
     <button class="btn btn-dark text-light ms-3" onclick="toggleDarkMode()"><i id="dark-mode-icon" class="fas fa-moon"></i></button>
     <button class="btn btn-dark text-light ms-3"><i class="fa-solid fa-headset"></i></button>
+    <button class="btn btn-dark text-light ms-3"><i class="fa-solid fa-code-compare"></i></button>
     <hr>
       {{-- @auth --}}
           {{-- <div class="nav-item dropdown">
