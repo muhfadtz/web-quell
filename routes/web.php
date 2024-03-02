@@ -21,11 +21,7 @@ Route::get('/', function () {
 });
 
 // File: routes/web.php
-
-
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
 
 // Route::get('/', [CategoryController::class, 'index'])->name('home');
 // Route::get('/', [PostController::class, 'index'])->name('home');

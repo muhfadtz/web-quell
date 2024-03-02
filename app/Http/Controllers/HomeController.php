@@ -8,10 +8,16 @@ use App\Models\Post;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::all();
-        $posts = Post::all();
+
+        if(request('category')) {
+            $category = Category::firstWhere('slug', request('category'));
+            $title = 'Category: ' . $category->name;
+        }
+        // Menggunakan query Post dengan filter tanpa pagination.
+        $posts = Post::latest()->filter($request->only(['search']))->get();
 
         return view('home', compact('categories', 'posts'));
     }

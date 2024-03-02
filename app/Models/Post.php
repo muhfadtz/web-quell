@@ -15,4 +15,17 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    // Menambahkan scopeFilter untuk penyaringan berdasarkan judul saja
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? null, function ($query, $search) {
+            $query->where('title', 'like', '%' . $search . '%');
+        });
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
