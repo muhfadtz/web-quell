@@ -197,7 +197,6 @@
 
       .tab-bar {
           display: flex;
-          overflow-x: auto;
           justify-content: center; /* Tambahkan ini untuk mengatur posisi tengah jika tidak ada overflow */
       }
 

@@ -42,5 +42,20 @@ class DatabaseSeeder extends Seeder
             'name' => 'MSI',
             'slug' => 'msi'
         ]);
+
+        Category::create([
+            'name' => 'Advan',
+            'slug' => 'advan'
+        ]);
+
+        Category::create([
+            'name' => 'ROG',
+            'slug' => 'rog'
+        ]);
+
+        Category::create([
+            'name' => 'TUF',
+            'slug' => 'tuf'
+        ]);
     }
 }

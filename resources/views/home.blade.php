@@ -31,17 +31,18 @@
             </div>
         </div>
     </div>
-    <div class="tab-container mb-5">
-        <div class="tab-bar">
-            @foreach($categories as $category)
-                <div class="tab @if(request('category') == $category->slug) active @endif" data-category="{{ $category->name }}">
-                    <a href="/blog?category={{ $category->slug }}" style="color: inherit; text-decoration: none;">{{ $category->name }}</a>
-                </div>
-            @endforeach
-        </div>
-    </div>
+    
 
     <div class="container">
+        <div class="tab-container mb-5">
+            <div class="tab-bar ms-4">
+                @foreach($categories as $category)
+                    <div class="tab @if(request('category') == $category->slug) active @endif" data-category="{{ $category->name }}">
+                        <a href="/blog?category={{ $category->slug }}" style="color: inherit; text-decoration: none;">{{ $category->name }}</a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
         <div class="row justify-content-center">
             @foreach ($posts as $post)
                 <div class="col-lg-3 col-6 mb-4">
