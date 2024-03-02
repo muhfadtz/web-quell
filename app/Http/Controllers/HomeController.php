@@ -17,7 +17,7 @@ class HomeController extends Controller
             $title = 'Category: ' . $category->name;
         }
         // Menggunakan query Post dengan filter tanpa pagination.
-        $posts = Post::latest()->filter($request->only(['search']))->get();
+        $posts = Post::with(['category'])->latest()->filter($request->only(['search']))->get();
 
         return view('home', compact('categories', 'posts'));
     }

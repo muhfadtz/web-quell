@@ -161,6 +161,7 @@
           border-top-left-radius: 25px; /* Sudut melengkung di atas kiri */
           border-top-right-radius: 25px; /* Sudut melengkung di atas kanan */
           margin: 0; /* Ganti margin menjadi 0 */
+          z-index: 999;
       }
 
       #popup-handle {
