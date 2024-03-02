@@ -29,7 +29,7 @@ class HomeController extends Controller
         $post = Post::where('slug', $slug)->with(['category'])->firstOrFail();
         $categories = Category::all();
 
-        return view('single-post', compact('post', 'categories'));
+        return view('post', compact('post', 'categories'));
     }
 }
 

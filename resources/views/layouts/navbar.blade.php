@@ -36,7 +36,7 @@
           {{-- @else --}}
           <a href="/login" class="btn btn-dark text-light mb-3" onclick="hideSidebar()"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a>
       {{-- @endauth --}}
-    <a href="#" onclick="hideSidebar()"> Home</a>
+    <a href="/" onclick="hideSidebar()"> Home</a>
     <a href="#" onclick="hideAndToggle()"> QuellBot &nbsp;<i class="fa-solid fa-lock exclude-lock" style="font-size: 10px; background-color: #1a1a1a; color: #fff; border-radius: 5px; padding: 5px;"></i></a>
     {{-- <a href="#" onclick="hideSidebar()"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a> --}}
     <div class="card text-light" style="background-color: #1a1a1a">
