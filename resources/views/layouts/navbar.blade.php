@@ -1,6 +1,6 @@
 <div class="navbar">
     <div class="navbar-icon ms-3" id="user"><a href="#" style="text-decoration: none;"><i class="fa-regular fa-user fs-3" style="color: #000;"></i></a></div>
-    <div class="navbar-brand"><img src="#" alt="Logo" style="width: 35px;"></div>
+    <div class="navbar-brand"><img src="assets/3.png" alt="Logo" style="width: 35px;"></div>
     <div class="navbar-icons">
       <div class="navbar-icon" id="hamburger">
         <i class="fa-solid fa-bars-staggered" style="color: #000;"></i>
