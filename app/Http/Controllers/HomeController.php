@@ -21,7 +21,7 @@ class HomeController extends Controller
         // Menggunakan query Post dengan eager loading untuk 'category'
         $posts = Post::with(['category'])->latest()->filter($request->only(['search']))->get();
 
-        return view('home', compact('categories', 'posts'));
+        return view('home', compact('categories', 'posts'))->with('title', 'Home');
     }
 
     public function showPost($slug)
@@ -29,7 +29,7 @@ class HomeController extends Controller
         $post = Post::where('slug', $slug)->with(['category'])->firstOrFail();
         $categories = Category::all();
 
-        return view('post', compact('post', 'categories'));
+        return view('post', compact('post', 'categories'))->with('title', 'Details');
     }
 }
 
