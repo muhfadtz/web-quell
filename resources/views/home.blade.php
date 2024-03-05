@@ -16,7 +16,7 @@
                 </div>
                 <div class="row text-center">
                     <div class="col-12">
-                        <h4>QuellBot</h4>
+                        <img src="assets/6.png" alt="Logo" style="width: 80px;">
                     </div>
                 </div>
             </div>
