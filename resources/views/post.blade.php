@@ -34,7 +34,7 @@
                     <h6 class="fw-bold mb-4">Storage: <span class="fw-normal">{{ $post->storage }}</span></h6>
                     <h6 class="fw-bold mb-4">Port: <span class="fw-normal">{{ $post->port }}</span></h6>
                     <h6 class="fw-bold mb-4">OS: <span class="fw-normal">{{ $post->os }}</span></h6>
-                    <h6 class="fw-bold mb-4">Price: <span class="fw-normal">Rp {{ number_format($post->price, 0, ',', '.') }}</span></h6>
+                    <h6 class="fw-bold mb-4">Price: <span class="fw-normal">Rp{{ number_format($post->price, 0, ',', '.') }}</span></h6>
                 </div>
             </div>
             

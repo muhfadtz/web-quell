@@ -1,0 +1,105 @@
+body {
+    font-family: "nexa", sans-serif;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000;
+}
+
+.navbar-icons {
+    display: flex;
+}
+
+.navbar-icon {
+    margin-right: 15px;
+    cursor: pointer;
+    color: #000;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -200px; /* Sesuaikan nilai ini sesuai kebutuhan */
+    width: 200px;
+    height: 100%;
+    background-color: #fff;
+    padding-top: 50px;
+    transition: right 0.3s ease-in-out;
+    color: #000;
+    z-index: 1000;
+    font-weight: bold;
+}
+
+.sidebar a {
+    padding: 12px;
+    text-decoration: none;
+    color: #000;
+    display: block;
+    transition: 0.2s;
+    font-weight: bold;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.sidebar a:hover,
+.join:hover {
+    background-color: #e5e7eb;
+    margin: 10px;
+    border-radius: 10px;
+    color: #000;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-registration input {
+    margin-top: 20px !important;
+}
+
+.form-registration button {
+    margin-top: 20px !important;
+}
+
+.dropdown-menu a,
+button {
+    width: auto; /* Set the width to auto */
+    white-space: nowrap; /* Prevent wrapping */
+}

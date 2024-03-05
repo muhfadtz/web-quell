@@ -1,6 +1,6 @@
 <div class="navbar">
     <div class="navbar-icon ms-3" id="user"><a href="#" style="text-decoration: none;"><i class="fa-regular fa-user fs-3" style="color: #000;"></i></a></div>
-    <div class="navbar-brand"><img src="assets/3.png" alt="Logo" style="width: 35px;"></div>
+    <div class="navbar-brand"><img src="../assets/3.png" alt="Logo" style="width: 35px;"></div>
     <div class="navbar-icons">
       <div class="navbar-icon" id="hamburger">
         <i class="fa-solid fa-bars-staggered" style="color: #000;"></i>
@@ -15,11 +15,10 @@
     <button class="btn btn-dark text-light ms-3"><i class="fa-solid fa-headset"></i></button>
     <button class="btn btn-dark text-light ms-3"><i class="fa-solid fa-code-compare"></i></button>
     <hr>
-      {{-- @auth --}}
-          {{-- <div class="nav-item dropdown">
+      @auth
+          <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{ auth()->user()->name }}
-              Name
           </a>
           <hr>
           <div class="dropdown-menu">
@@ -32,10 +31,10 @@
               </form>
               </div>
           </div>
-          </div> --}}
-          {{-- @else --}}
+          </div>
+          @else
           <a href="/login" class="btn btn-dark text-light mb-3" onclick="hideSidebar()"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a>
-      {{-- @endauth --}}
+      @endauth
     <a href="/" onclick="hideSidebar()"> Home</a>
     <a href="#" onclick="hideAndToggle()"> QuellBot &nbsp;<i class="fa-solid fa-lock exclude-lock" style="font-size: 10px; background-color: #1a1a1a; color: #fff; border-radius: 5px; padding: 5px;"></i></a>
     {{-- <a href="#" onclick="hideSidebar()"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a> --}}
