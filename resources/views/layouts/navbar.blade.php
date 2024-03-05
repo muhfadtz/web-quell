@@ -17,20 +17,30 @@
     <hr>
       @auth
           <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              {{ auth()->user()->name }}
-          </a>
-          <hr>
-          <div class="dropdown-menu">
-              <div><a class="dropdown-item" href="../dashboard" style="font-size: small"><i class="fa-solid fa-gauge"></i> Dashboard</a></div>
-              <div><hr class="dropdown-divider"></div>
-              <div>
-              <form action="/logout" method="post">
-                  @csrf
-                  <button type="submit" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out</button>
-              </form>
-              </div>
-          </div>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ auth()->user()->name }}
+            </a>
+            <hr>
+            <div class="dropdown-menu">
+              @auth
+                  @if(auth()->user()->is_admin)
+                      <div>
+                          <a class="dropdown-item" href="../dashboard" style="font-size: small">
+                              <i class="fa-solid fa-gauge"></i> Dashboard
+                          </a>
+                      </div>
+                      <div><hr class="dropdown-divider"></div>
+                  @endif
+                  <div>
+                      <form action="/logout" method="post">
+                          @csrf
+                          <button type="submit" class="dropdown-item">
+                              <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
+                          </button>
+                      </form>
+                  </div>
+              @endauth
+          </div>          
           </div>
           @else
           <a href="/login" class="btn btn-dark text-light mb-3" onclick="hideSidebar()"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a>

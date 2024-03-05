@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id'); // user_id
             $table->string('title');
             $table->string('slug')->unique();
+            $table->string('image')->nullable();
             $table->string('seri_laptop')->default('Not found');
             $table->string('processor')->default('Not found');
             $table->string('graphic_card')->default('Not found');

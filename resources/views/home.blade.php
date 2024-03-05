@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="col-12">
                             <h5 class="mb-2">
-                                <a href="{{ route('posts.show', ['slug' => $post->slug]) }}" style="color: inherit; text-decoration: none;">
+                                <a href="/post/{{ $post->slug }}" style="color: inherit; text-decoration: none;">
                                     {{ $post->title }}
                                 </a>
                             </h5>
