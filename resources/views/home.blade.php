@@ -50,7 +50,9 @@
             </div>
         </div>
 
-        <div class="row justify-content-center">
+        
+
+        <div class="row justify-content-center mt-4">
             @foreach ($posts as $post)
                 <div class="col-lg-3 col-6 mb-4">
                     <div class="row mb-2">

@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\CompareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,15 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
+
 // Content
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/post/{slug}', [HomeController::class, 'showPost'])->name('post.show');
+
+//compare
+Route::get('/posts/list', [HomeController::class, 'list'])->name('posts.list')->middleware('guest');
+Route::get('/compare', [HomeController::class, 'compare'])->name('compare')->middleware('guest');
+
 
 // Administrator
 Route::get('/dashboard', function() {
