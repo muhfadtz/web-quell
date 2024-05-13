@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 @section('container')
 
     <div id="popup-container">
@@ -81,5 +81,7 @@
     @else
       <p class="fw-bold text-center">Page Not Found.</p>
     @endif
+
+    <livewire:comments :model="$post"/>
 
 @endsection

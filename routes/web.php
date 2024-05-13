@@ -44,6 +44,11 @@ Route::get('/post/{slug}', [HomeController::class, 'showPost'])->name('post.show
 Route::get('/posts/list', [HomeController::class, 'list'])->name('posts.list')->middleware('guest');
 Route::get('/compare', [HomeController::class, 'compare'])->name('compare')->middleware('guest');
 
+//Community
+// Route::get('/community', [HomeController::class, 'community'])->name('comments')->middleware('guest');
+// Route::get('/community', function () {
+//     return view('community');
+// });
 
 // Administrator
 Route::get('/dashboard', function() {

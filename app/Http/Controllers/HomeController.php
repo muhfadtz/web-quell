@@ -56,5 +56,10 @@ class HomeController extends Controller
         return view('compare', compact('posts'))->with('title', 'Compare');
     }
 
+    public function community(Request $request)
+    {
+        return view('community')->with('title', 'Community');
+    }
+
 }
 
