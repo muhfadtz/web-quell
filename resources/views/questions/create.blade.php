@@ -1,6 +1,7 @@
-@extends('layouts.app')
 
-@section('content')
+@extends('layouts.main')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/q&a.css') }}">
+@section('container')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -17,7 +18,7 @@
 
                 <div class="card-body">
                     <form action="{{ route('questions.store') }}" method="post">
-                        @include ("question._form", ['buttonText' => "Ask Question"])
+                        @include ("questions._form", ['buttonText' => "Ask Question"])
                     </form>
                 </div>
             </div>

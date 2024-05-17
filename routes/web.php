@@ -8,6 +8,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\QuestionsController;
+use App\Http\Controllers\AnswerController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +47,15 @@ Route::get('/dashboard', function() {
     return view('dashboard.index');
 })->middleware(['auth', 'admin']);
 
+//Questions
+Route::resource('questions', QuestionsController::class)->except('show');
+Route::get('/questions/index', [QuestionsController::class, 'index'])->name('questions.index');
+Route::get('/questions', 'QuestionsController@indexPage');
+Route::get('/questions/list', 'QuestionsController@index');
+Route::get('/questions/{question}', 'QuestionsController@show')->name('questions.show');
+Route::get('/questions', [QuestionsController::class, 'index']);
+// Answer
+Route::post('/answers', [AnswerController::class, 'store'])->name('answers.store');
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(['auth', 'admin']);;

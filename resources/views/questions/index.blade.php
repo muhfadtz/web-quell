@@ -1,68 +1,67 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <div class="d-flex align-items-center">
-                        <h2>All Questions</h2>
-                        <div class="ml-auto">
-                            <a href="{{ route('questions.create')}}" class="btn btn-secondary">Ask Question</a>
-                        </div>
-                    </div>
-                    
+@section('container')
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="col-span-2 md:col-span-1">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold">Recent Questions</h2>
+                    <a href="{{ route('questions.create')}}" class="btn btn-secondary">Ask Question</a>
                 </div>
 
-                <div class="card-body">
-                    @include ('layouts._messages')
+                @include ('layouts._messages')
 
-                    @foreach ($questions as $question)
-                    <div class="media">
-                        <div class="d-flex flex-column counters">
-                            <div class="vote">
-                                <strong>{{ $question->votes }}</strong> {{ str::plural('vote', $question->votes)}}
+                @if ($questions->count() > 0)
+                    @foreach ($questions->reverse() as $question)
+                        <!-- Question Section -->
+                        <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+                            <div class="flex items-center mb-2">
+                                <p class="font-bold text-blue-600">{{ $question->user->name }}</p>
+                                <p class="text-sm text-gray-500 ml-auto">{{ $question->created_date }}</p>
                             </div>
-                            <div class="status {{ $question->status }}">
-                                <strong>{{ $question->answers }}</strong> {{ str::plural('aswers', $question->answers)}}
-                            </div>
-                            <div class="view">
-                               {{ $question->views ,"", str::plural('view', $question->views)}}
-                            </div>
+                            <h3 class="text-xl font-semibold text-blue-600 mb-2">{{ $question->title }}</h3>
+                            <p class="text-gray-800">{{ Str::limit($question->body, 250) }}</p>
                         </div>
-                    <div class="media-body">
-                        <div class="d-flex align-items-center">
-                        <h3 class="mt-0"><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
-                         <div class="ml-auto">
-                         @can ('update', $question)
-                             <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
-                             @endcan
-                             @can ('delete', $question)
-                             <form class ="form-delete"method="post" action="{{ route('questions.destroy', $question->id) }}">
-                                @method_field('DELETE')
+                        
+                        <!-- Answer Form -->
+                        <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+                            <form action="{{ route('answers.store') }}" method="post" class="mt-4">
                                 @csrf
-                                <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                <div class="form-group">
+                                    <label for="answer" class="block">Your Answer</label>
+                                    <textarea class="form-control mt-2 w-full" id="answer" name="answer" rows="3"></textarea>
+                                </div>
+                                <input type="hidden" name="question_id" value="{{ $question->id }}">
+                                <button type="submit" class="btn btn-primary mt-2">Submit Answer</button>
                             </form>
-                            @endcan
-                         </div>
-                    </div>
-                    <p class="lead">
-                    Asked by
-                    <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
-                    <small class="text-muted">{{ $question->created_date }}</small>
-                    </p>
-                    {{ Str::limit($question->body, 250) }}
-                    </div>
-                    </div>
-                    <hr>
+                        </div>
+
+                        <!-- Display Answers -->
+                        @if ($question->answers()->count() > 0)
+                            @foreach($question->answers as $answer)
+                                <!-- Answer Section -->
+                                <div class="bg-gray-100 p-4 rounded-lg mb-2">
+                                    <div class="flex items-center mb-2">
+                                        <p class="font-bold text-blue-600">{{ $answer->user->name }}</p>
+                                    </div>
+                                    <p class="text-gray-800">{{ $answer->content }}</p>
+                                </div>
+                                @if (!$loop->last)
+                                    <hr class="my-2">
+                                @endif
+                            @endforeach
+                        @else
+                            <div class="bg-gray-100 p-4 rounded-lg mb-2">
+                                <p class="text-gray-800">No answers yet.</p>
+                            </div>
+                        @endif
+
+                        <hr class="my-6">
                     @endforeach
-                    <div class="text-center">
-                    {{ $questions->links() }}
-                    </div>
-                </div>
+                @else
+                    <p class="text-gray-600">No questions found.</p>
+                @endif
             </div>
         </div>
     </div>
-</div>
 @endsection
