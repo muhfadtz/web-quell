@@ -11,9 +11,19 @@
   <div class="overlay" id="overlay" onclick="hideSidebar()"></div>
 
   <div class="sidebar" id="sidebar">
-    <button class="btn btn-dark text-light ms-3" onclick="toggleDarkMode()"><i id="dark-mode-icon" class="fas fa-moon"></i></button>
-    <button class="btn btn-dark text-light ms-3"><i class="fa-solid fa-headset"></i></button>
-    <button class="btn btn-dark text-light ms-3"><i class="fa-solid fa-code-compare"></i></button>
+    <div class="row">
+      <div class="col-4">
+        <button class="btn btn-dark text-light ms-3" onclick="toggleDarkMode()"><i id="dark-mode-icon" class="fas fa-moon"></i></button>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-dark text-light ms-3"><i class="fa-solid fa-headset"></i></button>
+      </div>
+      <div class="col-4">
+        <a href="/posts/list" class="btn btn-dark text-light"><i class="fa-solid fa-code-compare"></i></a>
+      </div>
+    </div>
+    
+    
     <hr>
       @auth
           <div class="nav-item dropdown">
