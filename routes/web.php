@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\PostController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardPostController;
-use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\CompareController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\QuestionsController;
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\DashboardPostController;
 
 /*
 |--------------------------------------------------------------------------
