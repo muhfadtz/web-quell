@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "d489425eeeb47759cddec992f957d4bc",
+=======
+    "content-hash": "8577094ae4a25ef3ab92658786b92831",
+>>>>>>> 64519e8256d8b01ba03945b4b56524208c8a094d
     "packages": [
         {
             "name": "brick/math",
@@ -1896,6 +1900,7 @@
         },
         {
             "name": "livewire/livewire",
+<<<<<<< HEAD
             "version": "v3.4.12",
             "source": {
                 "type": "git",
@@ -1906,6 +1911,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/livewire/livewire/zipball/54dd265c17f7b5200627eb9690590e7cbbad1027",
                 "reference": "54dd265c17f7b5200627eb9690590e7cbbad1027",
+=======
+            "version": "v3.4.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/livewire/livewire.git",
+                "reference": "8a78d0c3ae9b4c96a2d8932ea4ac0dc782325de0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/8a78d0c3ae9b4c96a2d8932ea4ac0dc782325de0",
+                "reference": "8a78d0c3ae9b4c96a2d8932ea4ac0dc782325de0",
+>>>>>>> 64519e8256d8b01ba03945b4b56524208c8a094d
                 "shasum": ""
             },
             "require": {
@@ -1920,7 +1937,11 @@
             },
             "require-dev": {
                 "calebporzio/sushi": "^2.1",
+<<<<<<< HEAD
                 "laravel/framework": "^10.15.0|^11.0",
+=======
+                "laravel/framework": "^10.0|^11.0",
+>>>>>>> 64519e8256d8b01ba03945b4b56524208c8a094d
                 "laravel/prompts": "^0.1.6",
                 "mockery/mockery": "^1.3.1",
                 "orchestra/testbench": "^8.21.0|^9.0",
@@ -1960,7 +1981,11 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/livewire/livewire/tree/v3.4.12"
+=======
+                "source": "https://github.com/livewire/livewire/tree/v3.4.11"
+>>>>>>> 64519e8256d8b01ba03945b4b56524208c8a094d
             },
             "funding": [
                 {
@@ -1968,7 +1993,11 @@
                     "type": "github"
                 }
             ],
+<<<<<<< HEAD
             "time": "2024-05-02T17:10:37+00:00"
+=======
+            "time": "2024-04-24T12:14:15+00:00"
+>>>>>>> 64519e8256d8b01ba03945b4b56524208c8a094d
         },
         {
             "name": "monolog/monolog",
@@ -8259,7 +8288,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.1"
+        "php": "^8.2.12"
     },
     "platform-dev": [],
     "plugin-api-version": "2.6.0"

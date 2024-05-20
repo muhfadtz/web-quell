@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quell | {{ $title }}</title>
+    <title>Quell</title>
     <link rel="icon" href="#">
     <!-- Contoh penggunaan Google Fonts di HTML -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
@@ -215,6 +215,61 @@
           background-color: #1a1a1a;
           color: white;
       }
+
+      /* Container style */
+      .container {
+          margin-top: 50px;
+      }
+
+      /* Card style */
+      .card {
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Card header style */
+      .card-header {
+          background-color: #f8f9fa;
+          border-bottom: 1px solid #ccc;
+          padding: 15px;
+      }
+
+      /* Title style */
+      .card-header h2 {
+          margin: 0;
+          font-size: 24px;
+          color: #333;
+      }
+
+      /* Back button style */
+      .card-header .btn-secondary {
+          background-color: #6c757d;
+          color: #fff;
+      }
+
+      /* Card body style */
+      .card-body {
+          padding: 20px;
+      }
+
+      /* Form style */
+      form {
+          margin-bottom: 0;
+      }
+
+      /* Submit button style */
+      .btn-primary {
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+      }
+
+      /* Submit button hover style */
+      .btn-primary:hover {
+          background-color: #0056b3;
+      }
+
     </style>
     <link
       rel="stylesheet"

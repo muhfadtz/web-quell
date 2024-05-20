@@ -12,7 +12,7 @@ class LoginController extends Controller
             'title' => 'Sign in'
         ]);
     }
-
+    
     public function authenticate(Request $request) {
         $credentials = $request->validate([
             'username' => 'required|min:4|max:255',
