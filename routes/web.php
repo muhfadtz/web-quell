@@ -43,8 +43,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/post/{slug}', [HomeController::class, 'showPost'])->name('post.show');
 
 //compare
-Route::get('/posts/list', [HomeController::class, 'list'])->name('posts.list')->middleware('guest');
-Route::get('/compare', [HomeController::class, 'compare'])->name('compare')->middleware('guest');
+Route::get('/posts/list', [HomeController::class, 'list'])->name('posts.list');
+Route::get('/compare', [HomeController::class, 'compare'])->name('compare');
 
 //Community
 // Route::get('/community', [HomeController::class, 'community'])->name('comments')->middleware('guest');
