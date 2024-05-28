@@ -16,9 +16,6 @@
         <button class="btn btn-dark text-light ms-3" onclick="toggleDarkMode()"><i id="dark-mode-icon" class="fas fa-moon"></i></button>
       </div>
       <div class="col-4">
-        <button class="btn btn-dark text-light ms-3"><i class="fa-solid fa-headset"></i></button>
-      </div>
-      <div class="col-4">
         <a href="/posts/list" class="btn btn-dark text-light"><i class="fa-solid fa-code-compare"></i></a>
       </div>
     </div>
@@ -56,15 +53,9 @@
           <a href="/login" class="btn btn-dark text-light mb-3" onclick="hideSidebar()"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a>
       @endauth
     <a href="/" onclick="hideSidebar()"> Home</a>
-    <a href="/form" onclick="hideSidebar()"> Bot</a>
+    <a href="/form" onclick="hideSidebar()"> QuellBot</a>
     <a href="{{ route('questions.index') }}">Community</a>
-    <a href="#" onclick="hideAndToggle()"> QuellBot &nbsp;<i class="fa-solid fa-lock exclude-lock" style="font-size: 10px; background-color: #1a1a1a; color: #fff; border-radius: 5px; padding: 5px;"></i></a>
     {{-- <a href="#" onclick="hideSidebar()"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a> --}}
-    <div class="card text-light" style="background-color: #1a1a1a">
-      <div class="card-body">
-          <p class="fw-light" style="font-size: smaller"><span class="fw-bold" style="font-size: medium">Try Pro</span><br>Upgrade for expand in more scale<br><button class="border-0 fw-bold mt-2 px-2" style="border-radius: 10px"><i class="fa-solid fa-arrow-up-right-from-square"></i><a href="#" class="exclude-me" style="text-decoration: none; color: inherit;"> Learn More</a></button></p>
-      </div>
-    </div> 
   </div>
 
   <script>
