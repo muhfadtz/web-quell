@@ -18,7 +18,8 @@ class LaptopController extends Controller
 
         $recommendedLaptops = json_decode($response->getBody()->getContents(), true);
 
-        return view('recommendations', ['laptops' => $recommendedLaptops]);
+        return response()->json($recommendedLaptops);
     }
 }
+
 
