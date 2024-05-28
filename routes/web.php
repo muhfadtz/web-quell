@@ -46,6 +46,14 @@ Route::get('/post/{slug}', [HomeController::class, 'showPost'])->name('post.show
 Route::get('/posts/list', [HomeController::class, 'list'])->name('posts.list');
 Route::get('/compare', [HomeController::class, 'compare'])->name('compare');
 
+use App\Http\Controllers\LaptopController;
+
+Route::post('/recommend', [LaptopController::class, 'recommend']);
+Route::get('/form', function () {
+    return view('form');
+});
+
+
 //Community
 // Route::get('/community', [HomeController::class, 'community'])->name('comments')->middleware('guest');
 // Route::get('/community', function () {
