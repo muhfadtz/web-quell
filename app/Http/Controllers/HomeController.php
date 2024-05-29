@@ -10,19 +10,32 @@ use App\Models\Post;
 class HomeController extends Controller
 {
     public function index(Request $request)
-    {
-        $categories = Category::all();
+{
+    $categories = Category::all();
+    $title = 'Home';
 
-        if (request('category')) {
-            $category = Category::firstWhere('slug', request('category'));
-            $title = 'Category: ' . $category->name;
-        }
-        
-        // Menggunakan query Post dengan eager loading untuk 'category'
-        $posts = Post::with(['category'])->latest()->filter($request->only(['search']))->get();
+    // Memeriksa apakah ada kategori yang dipilih
+    if ($request->has('category')) {
+        $category = Category::firstWhere('slug', $request->category);
+        $title = 'Category: ' . $category->name;
 
-        return view('home', compact('categories', 'posts'))->with('title', 'Home');
+        // Memfilter posts berdasarkan kategori yang dipilih
+        $posts = Post::with('category')
+                     ->where('category_id', $category->id)
+                     ->latest()
+                     ->filter($request->only(['search']))
+                     ->get();
+    } else {
+        // Jika tidak ada kategori yang dipilih, tampilkan semua posts
+        $posts = Post::with('category')
+                     ->latest()
+                     ->filter($request->only(['search']))
+                     ->get();
     }
+
+    return view('home', compact('categories', 'posts'))->with('title', $title);
+}
+
 
     public function showPost($slug)
     {
